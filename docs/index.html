@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>lmath — math that shows its work</title>
+<meta name="description" content="lmath solves algebra, geometry, trig, calculus and more with exact answers, step-by-step working, and interactive graphs. Try it in your browser.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/grapher.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#top"><img src="assets/logo.png" alt="" width="30" height="30"><span>lmath</span></a>
+  <nav>
+    <a href="#try">Try it</a><a href="#commands">Commands</a><a href="#download">Download</a>
+    <a class="gh" href="#" data-repo>GitHub</a>
+    <button id="theme" class="icon" title="Switch light / dark" aria-label="Switch light or dark">◐</button>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="kicker">Algebra 1 → Pre-Calculus → Calculus</p>
+      <h1>Math that <em>shows its work.</em></h1>
+      <p class="lede">Type a problem the way you'd write it. lmath answers in exact fractions and radicals, explains every step, and draws the graph — no decimals pretending to be answers.</p>
+      <div class="cta">
+        <a class="btn primary" href="#try">Try it in your browser</a>
+        <a class="btn" href="#download">Download for Windows &amp; Mac</a>
+      </div>
+    </div>
+    <figure class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 320" role="img">
+        <defs><pattern id="g" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="currentColor" stroke-opacity=".12"/></pattern></defs>
+        <rect width="420" height="320" rx="16" fill="url(#g)" class="art-bg"/>
+        <path d="M0 220H420M150 0V320" stroke="currentColor" stroke-opacity=".5" stroke-width="1.5"/>
+        <path d="M30 20 Q150 420 270 20" transform="translate(30 0) scale(1 .62) translate(0 108)" fill="none" class="curve" stroke-width="3.2"/>
+        <circle cx="180" cy="233" r="6" class="dot"/>
+        <text x="194" y="262" class="art-label">vertex (2, −1)</text>
+        <circle cx="120" cy="220" r="5" class="dot2"/><circle cx="240" cy="220" r="5" class="dot2"/>
+        <text x="64" y="206" class="art-label">(1, 0)</text><text x="246" y="206" class="art-label">(3, 0)</text>
+      </svg>
+      <figcaption>y = x² − 4x + 3 — intercepts and vertex marked automatically</figcaption>
+    </figure>
+  </section>
+
+  <section class="strip">
+    <div><b>Exact first.</b> <span>3/4 + 5/6 = 19/12, √48 = 4√3, area = 25π. Decimals only appear beside the exact answer.</span></div>
+    <div><b>Every step.</b> <span>Linear, quadratic, absolute value, systems, inequalities, factoring — explained the way a teacher would.</span></div>
+    <div><b>Real graphs.</b> <span>Drag, zoom, trace. Circles, inequalities, intersections, and exact intercepts.</span></div>
+    <div><b>Works anywhere.</b> <span>Installs on Windows and Mac, runs offline, and previews right here in your browser.</span></div>
+  </section>
+
+  <section id="try" class="demo">
+    <div class="sec-head"><h2>Try it</h2><p>This is the real lmath engine running in your browser. Type a command or click an example.</p></div>
+    <div class="chips" id="examples"></div>
+    <div class="demo-grid">
+      <div class="console" id="console">
+        <div class="console-bar"><span><i></i><i></i><i></i></span><b id="status">Loading Python…</b><button id="clear" class="link">Clear</button></div>
+        <div class="out" id="out" aria-live="polite"></div>
+        <form id="form" autocomplete="off"><span class="prompt">lmath&gt;</span><input id="line" type="text" spellcheck="false" autocapitalize="off" placeholder="try:  solve x^2-5x+6=0" disabled><button class="go" disabled>Run</button></form>
+      </div>
+      <div class="graphpane" id="graphpane"><div class="graph-empty"><p>Graphs appear here.</p><p class="dim">Try <button class="link" data-run="plot x^2-4x+3">plot x^2-4x+3</button> or <button class="link" data-run="plot x^2+y^2=25">plot x^2+y^2=25</button></p></div><div id="graph"></div></div>
+    </div>
+  </section>
+
+  <section id="commands" class="cmds">
+    <div class="sec-head"><h2>Everything it can do</h2><p>Click any example to run it above.</p></div>
+    <input id="filter" type="search" placeholder="Search commands…  (try: factor, circle, matrix, loan)" aria-label="Search commands">
+    <div id="catalog"></div>
+  </section>
+
+  <section id="download" class="dl">
+    <div class="sec-head"><h2>Download</h2><p>Free. The installer keeps your saved functions between sessions.</p></div>
+    <div class="dl-grid">
+      <a class="card" data-asset="setup.exe" href="#" data-releases><h3>Windows</h3><p>Installer (recommended)</p><span class="btn primary">lmath-setup.exe</span></a>
+      <a class="card" data-asset="windows.zip" href="#" data-releases><h3>Windows portable</h3><p>No install — unzip and run</p><span class="btn">.zip</span></a>
+      <a class="card" data-asset="macos.zip" href="#" data-releases><h3>Mac</h3><p>Apple Silicon · unzip, then open <code>lmath.command</code></p><span class="btn">.zip</span></a>
+    </div>
+    <p class="dim small">Python users: <code>pip install sympy</code> then <code>python source/engine.py</code> from the repository.</p>
+  </section>
+</main>
+
+<footer><span>lmath <span id="ver"></span></span><a href="#" data-repo>Source on GitHub</a></footer>
+
+<script src="assets/grapher.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

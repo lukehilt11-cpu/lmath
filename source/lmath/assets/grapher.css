@@ -1,0 +1,34 @@
+/* grapher.css — look of the lmath graph (light + dark). Used by graph.html and the website. */
+.lg-root {
+  --g-bg: #ffffff; --g-grid: #e8ebf1; --g-axis: #7b8496; --g-text: #4b5565; --g-pt: #111827;
+  --g-tip: #111827; --g-label-bg: rgba(255,255,255,.85);
+  --g-ui-bg: #f4f6fa; --g-ui-fg: #1f2937; --g-ui-line: #d9dee8; --g-ui-accent: #2f6fed;
+  font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--g-ui-fg);
+}
+@media (prefers-color-scheme: dark) {
+  .lg-root:not([data-theme="light"]) {
+    --g-bg: #12151c; --g-grid: #232937; --g-axis: #8a94a8; --g-text: #aab3c5; --g-pt: #e5e7eb;
+    --g-tip: #2a3142; --g-label-bg: rgba(18,21,28,.85);
+    --g-ui-bg: #1a1f2a; --g-ui-fg: #e5e7eb; --g-ui-line: #2c3446; --g-ui-accent: #6b9bff;
+  }
+}
+.lg-root[data-theme="dark"] {
+  --g-bg: #12151c; --g-grid: #232937; --g-axis: #8a94a8; --g-text: #aab3c5; --g-pt: #e5e7eb;
+  --g-tip: #2a3142; --g-label-bg: rgba(18,21,28,.85);
+  --g-ui-bg: #1a1f2a; --g-ui-fg: #e5e7eb; --g-ui-line: #2c3446; --g-ui-accent: #6b9bff;
+}
+.lg-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 8px; }
+.lg-bar button, .lg-pt {
+  font: inherit; padding: 5px 11px; border: 1px solid var(--g-ui-line); border-radius: 8px;
+  background: var(--g-ui-bg); color: var(--g-ui-fg); cursor: pointer;
+}
+.lg-bar button:hover, .lg-pt:hover { border-color: var(--g-ui-accent); }
+.lg-hint { margin-left: auto; font-size: 12px; opacity: .6; }
+.lg-stage { border: 1px solid var(--g-ui-line); border-radius: 12px; overflow: hidden; background: var(--g-bg); line-height: 0; }
+.lg-stage canvas { display: block; touch-action: none; cursor: crosshair; }
+.lg-legend { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 10px 2px 0; }
+.lg-chip { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
+.lg-chip i { width: 18px; height: 4px; border-radius: 2px; display: inline-block; }
+.lg-points { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; align-items: center; }
+.lg-ph { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; opacity: .6; margin-right: 4px; }
+.lg-pt { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px; padding: 3px 9px; }
