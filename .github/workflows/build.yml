@@ -50,7 +50,7 @@ jobs:
 
   macos:
     needs: test
-    runs-on: macos-14                   # Apple Silicon
+    runs-on: macos-15                   # Apple Silicon
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
